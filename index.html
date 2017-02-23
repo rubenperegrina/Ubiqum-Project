@@ -4,31 +4,29 @@
     <meta charset="UTF-8">
     <title>Ubiqum Project</title>
 
-    <link href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<form action="/action_page.php">
-    <div class="imgcontainer">
-        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+<div class="login-page">
+    <div class="form">
+        <form class="login-form">
+            <input type="text" placeholder="email"/>
+            <input type="password" placeholder="password"/>
+            <button>login</button>
+            <!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
+        </form>
     </div>
-
-    <div class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-
-        <button type="submit">Login</button>
-        <input type="checkbox" checked="checked"> Remember me
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-</form>
+</div>
 
 <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
 <script>
@@ -42,5 +40,9 @@
     };
     firebase.initializeApp(config);
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="JS/script.js"></script>
+
 </body>
 </html>
