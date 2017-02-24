@@ -13,6 +13,7 @@
 $(".button").on("click", function() {
     var email = $("#email").val();
     var password = $("#password").val();
+    userAuthentication(email, password);
     console.log("este es el email:" + email);
     console.log(password);
 });
@@ -20,13 +21,22 @@ $(".button").on("click", function() {
 
 
 
+function userAuthentication(email, password) {
+console.log(email);
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if(errorCode === 'auth/wrong-password') {
+            alert('Wrong password');
+        } else {
+            alert(errorMessage);
+        }
+        console.log(error);
+        // ...
+    });
+}
 
-/*firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-});*/
 
 /*Sign Out*/
 firebase.auth().signOut().then(function() {
