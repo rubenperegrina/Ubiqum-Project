@@ -10,12 +10,13 @@
 /*Authentication*/
 
 
-if($(".button").onclick) {
-    var email = $(".email").val();
-    var password= $(".password").val();
-    console.log(email);
+$(".button").on("click", function() {
+    var email = $("#email").val();
+    var password = $("#password").val();
+    console.log("este es el email:" + email);
     console.log(password);
-};
+});
+
 
 
 
