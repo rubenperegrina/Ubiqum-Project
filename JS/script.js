@@ -3,17 +3,29 @@
  */
 
 /*Login*/
-$('.message a').click(function(){
+/*$('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
+});*/
 
 /*Authentication*/
-firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+
+
+if($(".button").onclick) {
+    var email = $(".email").val();
+    var password= $(".password").val();
+    console.log(email);
+    console.log(password);
+};
+
+
+
+
+/*firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
-});
+});*/
 
 /*Sign Out*/
 firebase.auth().signOut().then(function() {
