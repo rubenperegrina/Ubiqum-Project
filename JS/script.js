@@ -23,6 +23,7 @@ $(".button").on("click", function() {
 
 function userAuthentication(email, password) {
 console.log(email);
+    $(".username").append("<p>'Hi' + email</p>");
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
