@@ -10,38 +10,49 @@
 /*Authentication*/
 
 
-$(".button").on("click", function() {
-    var email = $("#email").val();
-    var password = $("#password").val();
-    userAuthentication(email, password);
-    console.log("este es el email:" + email);
-    console.log(password);
+$("#login").on("click", function() {
+	var email = $("#email").val();
+	var password = $("#password").val();
+	userAuthentication(email, password);
 });
 
+$("#logout").on("click", function() {
+	logout();
+	console.log("You have logged out");
+})
 
-
-
+/*Sign In*/
 function userAuthentication(email, password) {
-console.log(email);
     $(".username").append("<p>'Hi' + email</p>");
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        if(errorCode === 'auth/wrong-password') {
-            alert('Wrong password');
-        } else {
-            alert(errorMessage);
-        }
-        console.log(error);
-        // ...
-    });
+	console.log(email);
+	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		if(errorCode === 'auth/wrong-password') {
+			alert('Wrong password');
+		} else if(errorCode === 'auth/user-not-found') {
+			alert('User not found');
+		} else if(errorCode === 'auth/invalid-email') {
+			alert('Invalid user');
+		} else if(errorCode === 'auth/user-disabled') {
+			alert('User disabled');
+		} else {
+			alert(errorMessage);
+		}
+		console.log(error);
+	});
 }
 
 
 /*Sign Out*/
-firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-}, function(error) {
-    // An error happened.
-});
+function logout() {
+	firebase.auth().signOut().then(function() {
+		$("#logout").hide();
+		$("#login").show();
+    	// Sign-out successful.
+    }, function(error) {
+    	alert('Unable to log out');
+    	// An error happened.
+    });
+}
