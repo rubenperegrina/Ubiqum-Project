@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ubiqum Project</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ubiqum Project</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/style.css">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
 
 
-<div class="login-page">
-    <div class="form">
-        <div class="login-form">
-            <input class="form-control" name="email" id="email" type="text" placeholder="email"/>
-            <input class="form-control" name="password" id="password" type="password" placeholder="password"/>
-            <button class="button" id="login">login</button>
-            <button class="button" id="logout">log out</button>
-            <!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
+        <div class="login-page">
+            <div class="form">
+                <div class="login-form">
+                    <input class="form-control" name="email" id="email" type="text" placeholder="email"/>
+                    <input class="form-control" name="password" id="password" type="password" placeholder="password"/>
+                    <button class="button" id="login">login</button>
+                    <!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyC3fRsurholLQ_OH0OVN48rtrSblEfb1Eg",
-        authDomain: "ubiqum-project.firebaseapp.com",
-        databaseURL: "https://ubiqum-project.firebaseio.com",
-        storageBucket: "ubiqum-project.appspot.com",
-        messagingSenderId: "597896297392"
-    };
-    firebase.initializeApp(config);
-</script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyC3fRsurholLQ_OH0OVN48rtrSblEfb1Eg",
+                authDomain: "ubiqum-project.firebaseapp.com",
+                databaseURL: "https://ubiqum-project.firebaseio.com",
+                storageBucket: "ubiqum-project.appspot.com",
+                messagingSenderId: "597896297392"
+            };
+            firebase.initializeApp(config);
+        </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="JS/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="JS/script.js"></script>
 
-</body>
+    </body>
 </html>

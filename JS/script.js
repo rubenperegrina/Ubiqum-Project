@@ -14,6 +14,7 @@ $("#login").on("click", function() {
 	var email = $("#email").val();
 	var password = $("#password").val();
 	userAuthentication(email, password);
+	window.location.replace("messages.html");
 });
 
 $("#logout").on("click", function() {
@@ -48,11 +49,10 @@ function userAuthentication(email, password) {
 /*Sign Out*/
 function logout() {
 	firebase.auth().signOut().then(function() {
-		$("#logout").hide();
-		$("#login").show();
-    	// Sign-out successful.
-    }, function(error) {
-    	alert('Unable to log out');
-    	// An error happened.
-    });
+		window.location.replace("index.html");
+		// Sign-out successful.
+	}, function(error) {
+		alert('Unable to log out');
+		// An error happened.
+	});
 }
