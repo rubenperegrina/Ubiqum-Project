@@ -8,18 +8,37 @@
 });*/
 
 /*Authentication*/
+//var user = "";
+
 $(document).ready(function () {
+	firebase.auth().onAuthStateChanged(function(user) {
+		if(user) {
+			var email = user.email;
+			$(".username").append("<p>Hi " + email + "</p>");
+		}
+	});
+	console.log(firebase.auth());
 	$("#login").on("click", function() {
 		var email = $("#email").val();
 		var password = $("#password").val();
 		userAuthentication(email, password);
 	});
 
-	//$(".username").append("<p>'Hi' " + email + "</p>");
-
 	$("#logout").on("click", function() {
 		logout();
 		console.log("You have logged out");
+	})
+
+	$("#submitMessage").on("click", function() {
+		firebase.auth().onAuthStateChanged(function(user) {
+			if(user) {
+				sendMessage(user);
+			} else {
+				console.log("user not logged");
+				// No user is signed in.
+			}
+		});
+		console.log("ok");
 	})
 });
 
@@ -46,6 +65,17 @@ function userAuthentication(email, password) {
 		console.log(error);
 	});
 }
+
+function sendMessage(user) {
+	console.log(user);
+	var newPost = firebase.database().ref('messages/').push();
+	newPost.set({
+		user: user.email,
+		userID: user.uid,
+		message: $("#comment").val()
+	});
+	// User is signed in.
+};
 
 /*Sign Out*/
 function logout() {
