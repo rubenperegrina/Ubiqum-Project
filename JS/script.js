@@ -8,25 +8,27 @@
 });*/
 
 /*Authentication*/
+$(document).ready(function () {
+	$("#login").on("click", function() {
+		var email = $("#email").val();
+		var password = $("#password").val();
+		userAuthentication(email, password);
+	});
 
+	//$(".username").append("<p>'Hi' " + email + "</p>");
 
-$("#login").on("click", function() {
-	var email = $("#email").val();
-	var password = $("#password").val();
-	userAuthentication(email, password);
-	window.location.replace("messages.html");
+	$("#logout").on("click", function() {
+		logout();
+		console.log("You have logged out");
+	})
 });
-
-$("#logout").on("click", function() {
-	logout();
-	console.log("You have logged out");
-})
 
 /*Sign In*/
 function userAuthentication(email, password) {
-    $(".username").append("<p>'Hi' + email</p>");
 	console.log(email);
-	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+	firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
+		window.location.replace("messages.html");
+	}).catch(function(error) {
 		// Handle Errors here.
 		var errorCode = error.code;
 		var errorMessage = error.message;
@@ -45,7 +47,6 @@ function userAuthentication(email, password) {
 	});
 }
 
-
 /*Sign Out*/
 function logout() {
 	firebase.auth().signOut().then(function() {
@@ -56,3 +57,5 @@ function logout() {
 		// An error happened.
 	});
 }
+
+// TODO modals for the alert messages
