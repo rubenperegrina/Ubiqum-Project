@@ -10,16 +10,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/stylemessages.css">
 
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <button type="button" class="btn btn-danger" id="logout">Log Out</button>
-        <div class="username"></div>
-
+        <header>
+            <button type="button" class="btn btn-danger" id="logout">Log Out</button>
+            <div class="username"></div>
+        </header>
         <div class="container">
             <h2>Ubiqum Project</h2>
             <p>You can send messages to our Apps in this form bellow:</p>
@@ -29,8 +26,14 @@
                     <textarea class="form-control" rows="5" id="comment"></textarea>
                 </div>
             </form>
-            <button type="button" class="btn btn-success">Send</button>
+            <button type="button" class="btn btn-success" id="submitMessage">Send</button>
         </div>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
         <script src="js/firebase.js"></script>
