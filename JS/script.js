@@ -69,9 +69,12 @@ function userAuthentication(email, password) {
 function sendMessage(user) {
 	console.log(user);
 	var newPost = firebase.database().ref('messages/').push();
+	var timestamp = new Date().toString();
+	console.log(timestamp);
 	newPost.set({
 		user: user.email,
-		userID: user.uid,
+		userId: user.uid,
+		postDate: timestamp,
 		message: $("#comment").val()
 	});
 	// User is signed in.
@@ -86,6 +89,10 @@ function logout() {
 		alert('Unable to log out');
 		// An error happened.
 	});
+}
+
+function getDate() {
+	var test = "1";
 }
 
 // TODO modals for the alert messages
