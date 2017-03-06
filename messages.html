@@ -1,42 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Messages</title>
-        <!--<meta name="viewport" content="width=device-width, user-scalable=no">-->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages</title>
+    <!--<meta name="viewport" content="width=device-width, user-scalable=no">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/stylemessages.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/stylemessages.css">
 
 
-    </head>
-    <body>
-        <header>
-            <button type="button" class="btn btn-danger" id="logout">Log Out</button>
-            <div class="username"></div>
-        </header>
-        <div class="container">
-            <h2>Ubiqum Project</h2>
-            <p>You can send messages to our Apps in this form bellow:</p>
-            <form>
-                <div class="form-group">
-                    <label for="comment">Message:</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                </div>
-            </form>
-            <button type="button" class="btn btn-success" id="submitMessage">Send</button>
+</head>
+<body>
+<header>
+    <button type="button" class="btn btn-danger" id="logout">Log Out</button>
+    <div class="username"></div>
+</header>
+<div class="container">
+    <h2>Ubiqum Project</h2>
+    <p>You can send messages to our Apps in this form bellow:</p>
+    <form>
+        <div class="form-group">
+            <label for="comment">Message:</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
         </div>
+    </form>
+    <button type="button" class="btn btn-success" id="submitMessage">Send</button>
+</div>
 
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!---->
 
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-        <script src="js/firebase.js"></script>
-        <script src="js/script.js"></script>
-    </body>
+<div class="container">
+    <!-- Región selección imagen -->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br/>
+            <span id="fileselector">
+                <label class="btn btn-default" for="upload-file-selector">
+                <input id="upload-file-selector" type="file" accept="image/x-png,image/gif,image/jpeg" >
+                <i class="fa_icon icon-upload-alt margin-correction"></i>Subir Imagen
+                </label>
+            </span>
+
+        </div>
+    </div>
+    <!-- Región muestreo de imagen -->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br/>
+            <img id="img" src="img/no-image.png" class="img-thumbnail" style="display:none" width="150" />
+        </div>
+    </div>
+
+    <!-- Mostrar las imágenes subidas a firebase -->
+    <div class="row text-center" id="Loader" style="display:none">
+        <img src="img/ajax-loader.gif"/>
+    </div>
+    <!-- Mostrar la lista de imágenes de firebase -->
+    <div class="row" id="DivImagenes"></div>
+
+    <!-- Código del modal con bootstrap -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Imagen Firebase</h4>
+                </div>
+                <div class="modal-body ">
+                    <!-- Imagen que esta en firebase -->
+                    <img  src="" id="PreviewImg"  class="img-responsive" />
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--<div class="container">
+    &lt;!&ndash; Región selección imagen &ndash;&gt;
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br/>
+            <span id="fileselector">
+                <label class="btn btn-default" for="upload-file-selector">
+                <input id="upload-file-selector" type="file" accept="image/x-png,image/gif,image/jpeg">
+                <i class="fa_icon icon-upload-alt margin-correction"></i>Subir Imagen
+                </label>
+            </span>
+
+        </div>
+    </div>
+    &lt;!&ndash; Región muestreo de imagen &ndash;&gt;
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br/>
+            <img id="img" src="img/no-image.png" class="img-thumbnail" width="150"/>
+        </div>
+    </div>
+
+    &lt;!&ndash; Mostrar las imágenes subidas a firebase &ndash;&gt;
+    <div class="row text-center" id="Loader" style="display:none">
+        <img src="img/ajax-loader.gif"/>
+    </div>
+</div>-->
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/script.js"></script>
+<script src="js/redimensionar.js"></script>
+
+</body>
 </html>

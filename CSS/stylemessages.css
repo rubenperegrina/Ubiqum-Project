@@ -11,5 +11,18 @@ body {
 }
 
 header {
-	display: flex;
+    display: flex;
+}
+
+@import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
+#fileselector {
+    margin: 10px;
+}
+
+#upload-file-selector {
+    display: none;
+}
+
+.margin-correction {
+    margin-right: 10px;
 }
